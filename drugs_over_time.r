@@ -1,0 +1,14 @@
+setwd('~/Google Drive/Dropbox/Job Applications/2015/MastodonC');
+data1<-read.csv("per.month",header=F);
+colnames(data1) <- c("date", "Methylphenidate", "Atomoxetine", "Dexamfetamine", "Methylamfetamine", "Lisdexamfetamine", "Hyroxyamfetamine", "Total");
+attach(data1);
+dates <- as.Date(as.character(date), format("%Y%m%d"));
+plot(dates,Total, main="Frequency of ADHD prescriptions over time", ylim=c(0,85000), ylab="Amount of ADHD drugs prescribed", xlab="Date");
+points(dates, Methylphenidate, col="blue");
+points(dates, Atomoxetine, col="red");
+points(dates, Dexamfetamine, col="green");
+points(dates, Methylamfetamine, col="pink");
+points(dates, Lisdexamfetamine, col="brown");
+points(dates, Hyroxyamfetamine, col="grey");
+fill<-c("black", "blue", "red", "green", "pink", "brown", "grey");
+legend("right", c("Total", "Methylphenidate", "Atomoxetine", "Dexamfetamine", "Methylamfetamine", "Lisdexamfetamine", "Hyroxyamfetamine"), fill=fill);
